@@ -1,0 +1,8 @@
+{
+  "generator-jhipster:7.9.3": {
+    "promptValues": {
+      "packageName": "com.yes4all",
+      "nativeLanguage": "en"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208080939",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "issue_item",
+  "fields": [
+    {
+      "fieldName": "saleOrderNumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "confirmedQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "actualExportedQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "remainingQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "IssueItem",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "ownerSide": true,
+      "relationshipName": "product",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "issueNote",
+      "otherEntityRelationshipName": "issueItems",
+      "relationshipName": "issueNote",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

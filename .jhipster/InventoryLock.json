@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20230306083140",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "inventory_lock",
+  "fields": [
+    {
+      "fieldName": "lock",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "warehouseCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "warehouseId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "issueCode",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "InventoryLock",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

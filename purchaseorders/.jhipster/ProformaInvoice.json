@@ -1,0 +1,17 @@
+{
+  "changelogDate": "20220919031012",
+  "clientRootFolder": "purchaseorders",
+  "databaseType": "sql",
+  "fields": [
+    {
+      "fieldName": "seller",
+      "fieldType": "String"
+    }
+  ],
+  "microserviceName": "purchaseorders",
+  "name": "ProformaInvoice",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

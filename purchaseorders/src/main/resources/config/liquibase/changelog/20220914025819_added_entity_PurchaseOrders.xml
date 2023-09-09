@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity PurchaseOrders.
+    -->
+    <changeSet id="20220914025819-1" author="jhipster">
+        <createTable tableName="purchase_orders">
+            <column name="id" type="bigint">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="purchaseorderid" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="ponumber" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="from_so" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="vendorid" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="country" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="fulfillmentcenter" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="shipmentid" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="channel" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="totalitem" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="totalcost" type="double">
+                <constraints nullable="true" />
+            </column>
+            <column name="bookingnumber" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="expectedshipdate" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="actualshipdate" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="etd" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="eta" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="usbroker" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="status" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="updatedby" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="updateddate" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="isdeleted" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="deleteddate" type="date">
+                <constraints nullable="true" />
+            </column>
+            <column name="deletedby" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="cdcversion" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="purchase_orders_detail_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20220914025819-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/purchase_orders.csv"
+                  separator=";"
+                  tableName="purchase_orders"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="purchaseorderid" type="numeric"/>
+            <column name="ponumber" type="string"/>
+            <column name="from_so" type="string"/>
+            <column name="vendorid" type="string"/>
+            <column name="country" type="string"/>
+            <column name="fulfillmentcenter" type="string"/>
+            <column name="shipmentid" type="string"/>
+            <column name="channel" type="numeric"/>
+            <column name="totalitem" type="numeric"/>
+            <column name="totalcost" type="numeric"/>
+            <column name="bookingnumber" type="string"/>
+            <column name="expectedshipdate" type="date"/>
+            <column name="actualshipdate" type="numeric"/>
+            <column name="etd" type="date"/>
+            <column name="eta" type="date"/>
+            <column name="usbroker" type="string"/>
+            <column name="status" type="numeric"/>
+            <column name="updatedby" type="string"/>
+            <column name="updateddate" type="date"/>
+            <column name="isdeleted" type="boolean"/>
+            <column name="deleteddate" type="date"/>
+            <column name="deletedby" type="string"/>
+            <column name="cdcversion" type="numeric"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

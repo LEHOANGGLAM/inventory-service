@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Adjustment.
+    -->
+    <changeSet id="20230320042835-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="issue_note_id"
+                                 baseTableName="adjustment"
+                                 constraintName="fk_adjustment__issue_note_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="issue_note"/>
+
+        <addForeignKeyConstraint baseColumnNames="receipt_note_id"
+                                 baseTableName="adjustment"
+                                 constraintName="fk_adjustment__receipt_note_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="receipt_note"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,70 @@
+{
+  "applications": "*",
+  "changelogDate": "20230320042836",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "adjustment_item",
+  "fields": [
+    {
+      "fieldName": "asin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "inboundCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "outboundCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "wipQuantityBefore",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pkuQuantityBefore",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalQuantityBefore",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "wipQuantityAfter",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pkuQuantityAfter",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalQuantityAfter",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "AdjustmentItem",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "adjustment",
+      "otherEntityRelationshipName": "adjustmentItems",
+      "relationshipName": "adjustment",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

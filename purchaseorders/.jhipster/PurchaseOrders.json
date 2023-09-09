@@ -1,0 +1,117 @@
+{
+  "applications": "*",
+  "changelogDate": "20220914025819",
+  "clientRootFolder": "purchaseorders",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "purchase_orders",
+  "fields": [
+    {
+      "fieldName": "purchaseorderid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "ponumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fromSO",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "vendorid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "country",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "fulfillmentcenter",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "shipmentid",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "channel",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalitem",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "totalcost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "bookingnumber",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "expectedshipdate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "actualshipdate",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "etd",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "eta",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "usbroker",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "updatedby",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateddate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isdeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deleteddate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "deletedby",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "cdcversion",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "purchaseorders",
+  "name": "PurchaseOrders",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "purchaseOrdersdee",
+      "relationshipName": "purchaseOrdersDetail",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

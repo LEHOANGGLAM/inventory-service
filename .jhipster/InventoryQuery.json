@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208084101",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "inventory_query",
+  "fields": [
+    {
+      "fieldName": "productId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "periodId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "warehouseId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "warehouseCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "openQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "closeQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "receiptQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "issueQty",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "InventoryQuery",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

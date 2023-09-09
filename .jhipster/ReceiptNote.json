@@ -1,0 +1,119 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208080935",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "receipt_note",
+  "fields": [
+    {
+      "fieldName": "receiptCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "shipmentNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "containerNo",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "issueCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalTransferredQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalActualImportedQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalDifferenceQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "receiptType",
+      "fieldType": "ReceiptType",
+      "fieldValues": "PURCHASE_ORDER,EXTERNAL_TRANSFER,INTERNAL_TRANSFER,RETURN,ADJUST_INCREASE,OTHER"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isManualCreate",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "generalNote",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "ReceiptNoteStatus",
+      "fieldValues": "NEW,CONFIRMED,APPROVED,COMPLETED"
+    },
+    {
+      "fieldName": "modifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "receiptDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "department",
+      "fieldType": "Department",
+      "fieldValues": "RECEIVING,RETURN,WHOLESALE,RETAIL"
+    },
+    {
+      "fieldName": "warehouseCode",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "ReceiptNote",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "receiptItem",
+      "otherEntityRelationshipName": "receiptNote",
+      "relationshipName": "receiptItem",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "adjustment",
+      "otherEntityRelationshipName": "receiptNote",
+      "ownerSide": false,
+      "relationshipName": "adjustment",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "receiptNote",
+      "relationshipName": "warehouse",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

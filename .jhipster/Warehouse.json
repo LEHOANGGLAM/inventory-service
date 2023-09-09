@@ -1,0 +1,72 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208080936",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "warehouse",
+  "fields": [
+    {
+      "fieldName": "warehouseCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "warehouseName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "warehouseStatus",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pallet",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "Warehouse",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "warehouseInfo",
+      "ownerSide": true,
+      "relationshipName": "warehouseInfo",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "receiptNote",
+      "otherEntityRelationshipName": "warehouse",
+      "relationshipName": "receiptNote",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "issueNote",
+      "otherEntityRelationshipName": "warehouseFrom",
+      "relationshipName": "issueNoteFrom",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "issueNote",
+      "otherEntityRelationshipName": "warehouseTo",
+      "relationshipName": "issueNoteTo",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

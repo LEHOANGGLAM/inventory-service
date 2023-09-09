@@ -1,0 +1,247 @@
+entity ReceiptNote {
+    receiptCode String required unique
+    shipmentNo String
+    containerNo String
+    issueCode String
+    totalTransferredQty Integer
+    totalActualImportedQty Integer
+    totalDifferenceQty Integer
+    createdBy String
+    receiptType String
+    createdDate Instant
+    receiptType ReceiptType
+    isManualCreate Boolean
+    generalNote String
+    status ReceiptNoteStatus
+    modifiedBy String
+    modifiedDate Instant
+    isActive Boolean
+    receiptDate Instant
+    department Department
+    warehouseCode String
+}
+
+entity Warehouse {
+    warehouseCode String
+    warehouseName String
+    warehouseStatus String
+    address String
+    pallet Integer
+    createdDate Instant
+    createdBy String
+}
+
+entity Adjustment{
+    warehouseCode String
+    status AdjustmentStatus
+    adjustmentCode String
+    totalSku Integer
+    dateCreated Instant
+    createdBy String
+    reason Reason
+    note String
+}
+
+entity AdjustmentItem{
+    asin String
+    inboundCode String
+    outboundCode String
+    productTitle String
+    sku String
+    productTitle String
+    wipQuantityBefore Integer
+    pkuQuantityBefore Integer
+    totalQuantityBefore Integer
+    wipQuantityAfter Integer
+    pkuQuantityAfter Integer
+    totalQuantityAfter Integer
+}
+
+enum ReceiptType {
+    PURCHASE_ORDER
+    EXTERNAL_TRANSFER
+    INTERNAL_TRANSFER
+    RETURN
+    ADJUST_INCREASE
+    OTHER
+}
+
+entity ReceiptItem {
+    sku String
+    confirmedQty Integer
+    actualImportedQty Integer
+    differenceQty Integer
+    note String
+}
+
+entity InventoryLock {
+    lock Integer
+    sku String
+    productId Long
+    warehouseCode String
+    warehouseId Long
+    issueCode String
+}
+
+relationship OneToMany {
+    ReceiptNote to ReceiptItem{receiptNote}
+    Warehouse to ReceiptNote{warehouse}
+}
+
+
+entity WarehouseInfo{
+    wip Integer
+    ovsLocation Integer
+    pallet Integer
+    pkuLocation Integer
+}
+
+
+relationship OneToOne {
+    Warehouse{warehouseInfo} to WarehouseInfo
+}
+
+enum Reason {
+    SYSTEM_CORRECTION,
+    MISPLACED_FOUND,
+    DAMAGED_INVENTORY,
+    WRITE_OFF_INVENTORY,
+    CYCLE_COUNT,
+    MANUAL_PI_FBM,
+    MANUAL_PI_AVC_DS,
+    MANUAL_PI_WM_DSV,
+    MANUAL_PI_LOCAL
+}
+
+enum AdjustmentStatus {
+    COMPLETED
+}
+
+enum IssueType {
+    SALES_ORDERS
+    INTERNAL_TRANSFER
+    EXTERNAL_TRANSFER
+    ADJUST_DECREASE
+    OTHER
+}
+
+enum Department{
+    RECEIVING
+    RETURN
+    WHOLESALE
+    RETAIL
+}
+
+enum ReceiptNoteStatus {
+    NEW
+    CONFIRMED
+    APPROVED
+    COMPLETED
+}
+
+enum IssueNoteStatus {
+    NEW
+    CONFIRMED
+    APPROVED
+    COMPLETED
+}
+
+enum Channel{
+    AVC_WH_DI
+    AVC_DROPSHIP
+    ASC_FBA
+    ASC_FBM
+    WM_DSV
+    WM_WFS
+    LOCAL
+    WAYFAIR
+}
+
+entity IssueNote{
+    issueCode String required unique
+    receiptCode String
+    channel Channel
+    totalConfirmedQty Integer
+    issueType IssueType
+    createdDate Instant
+    createdBy String
+    isManualCreate Boolean
+    issueToName String
+    department Department
+    issueToAddress String
+    issueToPhone String
+    status IssueNoteStatus
+    generalNote String
+    modifiedBy String
+    modifiedDate Instant
+    isActive Boolean
+    totalRemainingQty Integer
+    totalActualExportedQty Integer
+    issueDate Instant
+    warehouseFromCode String
+    warehouseToCode String
+}
+
+entity IssueItem{
+    saleOrderNumber String
+    confirmedQty Integer
+    actualExportedQty Integer
+    remainingQty Integer
+    note String
+    sku String
+}
+
+entity PeriodLog{
+    fullDate Instant
+    day	Integer
+    month Integer
+    year Integer
+}
+
+entity InventoryQuery{
+    productId Long
+    sku String
+    periodId Long
+    warehouseId Long
+    warehouseCode String
+    openQty Integer
+    closeQty Integer
+    receiptQty Integer
+    issueQty Integer
+}
+
+entity InventoryLog {
+    productId Long
+    sku String
+    warehouseCode String
+    warehouseId Long
+    userId String
+    quantityBefore Integer
+    quantityAfter Integer
+    type String
+    referenceId Long
+    note String
+    updatedAt Instant
+}
+
+entity Product {
+    productTitle String
+    sku String
+    createdAt Instant
+    company String
+    asin String
+}
+
+relationship OneToMany{
+    Adjustment{adjustmentItems} to AdjustmentItem{adjustment}
+    IssueNote{issueItems} to IssueItem{issueNote}
+    Warehouse{issueNoteFrom} to IssueNote{warehouseFrom}
+    Warehouse{issueNoteTo} to IssueNote{warehouseTo}
+}
+
+relationship OneToOne{
+    Adjustment{issueNote} to IssueNote{adjustment}
+    Adjustment{receiptNote} to ReceiptNote{adjustment}
+    IssueItem{product} to Product
+    ReceiptItem{product} to Product
+}

@@ -1,0 +1,134 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208080938",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "issue_note",
+  "fields": [
+    {
+      "fieldName": "issueCode",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique"]
+    },
+    {
+      "fieldName": "channel",
+      "fieldType": "Channel",
+      "fieldValues": "AVC_WH_DI,AVC_DROPSHIP,ASC_FBA,ASC_FBM,WM_DSV,WM_WFS,LOCAL,WAYFAIR"
+    },
+    {
+      "fieldName": "totalConfirmedQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "issueType",
+      "fieldType": "IssueType",
+      "fieldValues": "SALES_ORDERS,INTERNAL_TRANSFER,EXTERNAL_TRANSFER,ADJUST_DECREASE,OTHER"
+    },
+    {
+      "fieldName": "createdDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isManualCreate",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "issueToName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "department",
+      "fieldType": "Department",
+      "fieldValues": "RECEIVING,RETURN,WHOLESALE,RETAIL"
+    },
+    {
+      "fieldName": "issueToAddress",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "issueToPhone",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "IssueNoteStatus",
+      "fieldValues": "NEW,CONFIRMED,APPROVED,COMPLETED"
+    },
+    {
+      "fieldName": "generalNote",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modifiedBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "modifiedDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "totalRemainingQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "totalActualExportedQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "issueDate",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "warehouseFromCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "warehouseToCode",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "IssueNote",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "issueItem",
+      "otherEntityRelationshipName": "issueNote",
+      "relationshipName": "issueItems",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "adjustment",
+      "otherEntityRelationshipName": "issueNote",
+      "ownerSide": false,
+      "relationshipName": "adjustment",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "issueNoteFrom",
+      "relationshipName": "warehouseFrom",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "warehouse",
+      "otherEntityRelationshipName": "issueNoteTo",
+      "relationshipName": "warehouseTo",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

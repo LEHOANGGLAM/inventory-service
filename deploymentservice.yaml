@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment # Kubernetes resource kind we are creating
+metadata:
+  name: inventory-api-qa-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: inventory-api-qa-k8s
+  template:
+    metadata:
+      labels:
+        app: inventory-api-qa-k8s
+    spec:
+      containers:
+        - name: inventory-api-qa-k8s
+          image: 172.30.12.112:8888/inventory-api-qa:latest # Image that will be used to containers in the cluster
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8082 # The port that the container is running on in the cluster
+---
+apiVersion: v1 # Kubernetes API version
+kind: Service # Kubernetes resource kind we are creating
+metadata: # Metadata of the resource kind we are creating
+  name: inventory-api-qa-k8ssvc
+spec:
+  selector:
+    app: inventory-api-qa-k8s
+  ports:
+    - protocol: "TCP"
+      port: 31005 # The port that the service is running on in the cluster
+      targetPort: 8082 # The port exposed by the service
+      nodePort: 31005 # The port exposed by Node IP
+  type: NodePort # type of the service.

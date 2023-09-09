@@ -1,0 +1,79 @@
+{
+  "applications": "*",
+  "changelogDate": "20220914025820",
+  "clientRootFolder": "purchaseorders",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "purchase_ordersdee",
+  "fields": [
+    {
+      "fieldName": "purchaseorderdetailid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "purchaseorderid",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "asin",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productname",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "qtyordered",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "maketostock",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "unitcost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "totalcost",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "updatedby",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "updateddate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "isdeleted",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "deletedby",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "deleteddate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "cdcversion",
+      "fieldType": "Long"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "purchaseorders",
+  "name": "PurchaseOrdersdee",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20230327042608",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "inventory_location",
+  "fields": [
+    {
+      "fieldName": "warehouseCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "productTitle",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "ovsQuantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pkuQuantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "wipQuantity",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "total",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pickupRow",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pkuLocation",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "InventoryLocation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

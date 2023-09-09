@@ -1,0 +1,35 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208084059",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "warehouse_info",
+  "fields": [
+    {
+      "fieldName": "wip",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "ovsLocation",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pallet",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "pkuLocation",
+      "fieldType": "Integer"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "WarehouseInfo",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "service": "no"
+}

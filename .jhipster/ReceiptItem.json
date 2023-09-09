@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20230208080937",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "receipt_item",
+  "fields": [
+    {
+      "fieldName": "sku",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "confirmedQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "actualImportedQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "differenceQty",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "ReceiptItem",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "ownerSide": true,
+      "relationshipName": "product",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "receiptNote",
+      "otherEntityRelationshipName": "receiptItem",
+      "relationshipName": "receiptNote",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}

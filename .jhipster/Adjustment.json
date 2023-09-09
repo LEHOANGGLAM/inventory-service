@@ -1,0 +1,74 @@
+{
+  "applications": "*",
+  "changelogDate": "20230320042835",
+  "clientRootFolder": "InventoryManagement",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "adjustment",
+  "fields": [
+    {
+      "fieldName": "warehouseCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "AdjustmentStatus",
+      "fieldValues": "COMPLETED"
+    },
+    {
+      "fieldName": "adjustmentCode",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "totalSku",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "dateCreated",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "createdBy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "reason",
+      "fieldType": "Reason",
+      "fieldValues": "SYSTEM_CORRECTION,MISPLACED_FOUND,DAMAGED_INVENTORY,WRITE_OFF_INVENTORY,CYCLE_COUNT,MANUAL_PI_FBM,MANUAL_PI_AVC_DS,MANUAL_PI_WM_DSV,MANUAL_PI_LOCAL"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "InventoryManagement",
+  "name": "Adjustment",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "issueNote",
+      "otherEntityRelationshipName": "adjustment",
+      "ownerSide": true,
+      "relationshipName": "issueNote",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "receiptNote",
+      "otherEntityRelationshipName": "adjustment",
+      "ownerSide": true,
+      "relationshipName": "receiptNote",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "adjustmentItem",
+      "otherEntityRelationshipName": "adjustment",
+      "relationshipName": "adjustmentItems",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}
